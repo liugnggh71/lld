@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bash_code name="b1f" subdir="dba_code/bin">
+    <header>
+        <shebang>/bin/sh</shebang>
+        <desc>Make a local backup of a single file</desc>
+    </header>
+    <if_block>
+        <test>
+            <operand type="variable"><![CDATA[#]]></operand>
+            <operator>NumberLess</operator>
+            <operand type="arithmetic"><![CDATA[1]]></operand>
+        </test>
+        <steps indent="1">
+            <echo position="both" wrapper="#"
+                ><![CDATA[USAGE: b1f file_name]]></echo>
+            <exit>11</exit>
+        </steps>
+    </if_block>
+    <full_code><![CDATA[mkdir -p bk
+cp -p ${1} bk/${1}.$(date +%Y_%m_%d_%H_%M_%S)
+ls -ltr bk | tail -n 10
+]]>
+    </full_code>
+</bash_code>

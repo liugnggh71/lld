@@ -1,0 +1,12 @@
+#!/bin/sh
+################################################################################
+# lld
+<<COMMENT
+List sub-directory under current directory
+COMMENT
+################################################################################
+  #List sub-directory
+  #RRRRRRRRRRRRRRRRRR
+  echo "List sub-directory"
+
+  ls -l ${1:-.} | grep ^d

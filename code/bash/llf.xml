@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bash_code name="llf" subdir="dba_code/bin" symbolic_link="F">
+    <header>
+        <shebang>/bin/sh</shebang>
+        <desc>List files under current directory</desc>
+    </header>
+    <run desc="List files" indent="1"><![CDATA[ls -l ${1:-.} | grep ^-]]></run>
+</bash_code>

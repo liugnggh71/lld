@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bash_code name="lnc" subdir="dba_code/bin">
+    <header>
+        <shebang>/bin/sh</shebang>
+        <desc>Generate symbolic creation code</desc>
+    </header>
+    <full_code><![CDATA[echo "" > ln_s.sh
+while IFS= read -r line
+do
+  ## Debugging lines
+#  echo "$line"
+  full_file=$(echo "$line" | cut -d '>' -f 2)
+#  echo $full_file
+  short_cut=$(echo "$line" | cut -d '-' -f 1 | rev | cut -d ' ' -f 2 | rev)
+#  echo $short_cut
+  echo ln -s $full_file $short_cut
+  echo ln -s $full_file $short_cut >> ln_s.sh
+#  ln -s $full_file $short_cut
+done << ( ls -l | grep ^l )
+]]>
+    </full_code>
+</bash_code>

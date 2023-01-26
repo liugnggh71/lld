@@ -1,0 +1,17 @@
+#!/bin/sh
+################################################################################
+# SAXON
+<<COMMENT
+Run Saxon XSLT transformer with 3 parameters
+COMMENT
+################################################################################
+
+cat << 'EOF'
+======================================================
+java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
+======================================================
+EOF
+echo java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
+java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
+
+    

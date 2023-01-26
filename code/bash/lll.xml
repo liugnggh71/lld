@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bash_code name="lll" subdir="dba_code/bin" symbolic_link="L">
+    <header>
+        <shebang>/bin/sh</shebang>
+        <desc>List sub-directory under current directory</desc>
+    </header>
+    <run desc="List symbolic link" indent="1"><![CDATA[ls -l ${1:-.} | grep ^l]]></run>
+</bash_code>

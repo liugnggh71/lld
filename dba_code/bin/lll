@@ -1,0 +1,12 @@
+#!/bin/sh
+################################################################################
+# lll
+<<COMMENT
+List sub-directory under current directory
+COMMENT
+################################################################################
+  #List symbolic link
+  #RRRRRRRRRRRRRRRRRR
+  echo "List symbolic link"
+
+  ls -l ${1:-.} | grep ^l
