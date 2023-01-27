@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<bash_code name="lld" subdir="dba_code/bin" symbolic_link="F">
+<bash_code name="lld" subdir="dba_code/bin" symbolic_link="D">
     <header>
         <shebang>/bin/sh</shebang>
         <desc>List sub-directory under current directory</desc>
