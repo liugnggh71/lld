@@ -26,5 +26,5 @@ chmod u+x XXX
 cd ${pwd}/dba_code/bin
 ln -s lld D
 ln -s llf F
-ln -s lll L
+ln -s lll L 
 cd ${pwd}
