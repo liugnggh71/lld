@@ -5,7 +5,7 @@
             git="https://github.com/liugnggh71/lld/raw/main">
    <bash_code name="lld"
               subdir="dba_code/bin"
-              symbolic_link="F"
+              symbolic_link="D"
               xml:base="code/bash/lld.xml">
       <header>
          <shebang>/bin/sh</shebang>

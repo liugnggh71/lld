@@ -20,6 +20,6 @@ chmod u+x SAXON
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/XXX
 chmod u+x XXX
 cd ${pwd}/dba_code/bin
-ln -s lld F
+ln -s lld D
 ln -s llf F
 ln -s lll L
