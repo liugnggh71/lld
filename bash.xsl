@@ -403,12 +403,21 @@
                 <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
-                <xsl:text>echo -n PATH=${pwd}/</xsl:text>
+                <xsl:text>echo -n export PATH=${pwd}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:text> &gt; profile.txt</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo ':${PATH}' >> profile.txt </xsl:text>
                 <xsl:value-of select="$v_newline"/>
+                <xsl:text>echo cd </xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text> &gt; cd_dba_code_bin.sh</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                
+                <xsl:text>echo ln -s cd_dba_code_bin.sh BN</xsl:text>
+                <xsl:text> &gt; ln_bn.sh</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                
                 <xsl:text>cd ${pwd}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
