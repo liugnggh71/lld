@@ -395,13 +395,18 @@
             
             <xsl:text><![CDATA[pwd=$(pwd)]]></xsl:text>
             <xsl:value-of select="$v_newline"/>
-
+            
             <xsl:for-each-group select="//bash_code[@name]" group-by="@subdir">
                 <xsl:variable name="v_subdir" select="./@subdir"> </xsl:variable>
                 <xsl:text>cd ${pwd}</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>echo PATH=${pwd}/</xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>echo -n ':${PATH}'</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>cd ${pwd}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
@@ -419,6 +424,8 @@
                     <xsl:value-of select="@name"/>
                     <xsl:value-of select="$v_newline"/>
                 </xsl:for-each>
+                <xsl:text>cd ${pwd}</xsl:text>
+                <xsl:value-of select="$v_newline"/>
             </xsl:for-each-group>
 
             <xsl:for-each-group select="//bash_code[@symbolic_link]" group-by="@subdir">
