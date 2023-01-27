@@ -2,8 +2,8 @@
 pwd=$(pwd)
 cd ${pwd}
 mkdir -p dba_code/bin
-echo -n PATH=${pwd}/dba_code/bin
-echo ':${PATH}'
+echo -n PATH=${pwd}/dba_code/bin > profile.txt
+echo ':${PATH}' >> profile.txt 
 cd ${pwd}/dba_code/bin
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/lld
 chmod u+x lld

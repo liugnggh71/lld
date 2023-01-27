@@ -403,8 +403,9 @@
                 <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
-                <xsl:text>echo -n PATH=${pwd}/ > profile.txt</xsl:text>
+                <xsl:text>echo -n PATH=${pwd}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
+                <xsl:text> &gt; profile.txt</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo ':${PATH}' >> profile.txt </xsl:text>
                 <xsl:value-of select="$v_newline"/>
