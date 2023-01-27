@@ -2,8 +2,8 @@
 pwd=$(pwd)
 cd ${pwd}
 mkdir -p dba_code/bin
-echo export PATH=${pwd}/dba_code/bin
-echo -n ':${PATH}'
+echo -n PATH=${pwd}/dba_code/bin
+echo ':${PATH}'
 cd ${pwd}/dba_code/bin
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/lld
 chmod u+x lld
@@ -21,8 +21,8 @@ wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/SAXON
 chmod u+x SAXON
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/XXX
 chmod u+x XXX
-cd ${pwd}
 cd ${pwd}/dba_code/bin
 ln -s lld D
 ln -s llf F
 ln -s lll L
+cd ${pwd}
