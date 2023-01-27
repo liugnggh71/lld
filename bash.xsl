@@ -398,7 +398,9 @@
 
             <xsl:for-each-group select="//bash_code[@name]" group-by="@subdir">
                 <xsl:variable name="v_subdir" select="./@subdir"> </xsl:variable>
-                <xsl:text>mkdir -p ${pwd}/</xsl:text>
+                <xsl:text>cd ${pwd}</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>cd ${pwd}/</xsl:text>

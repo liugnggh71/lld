@@ -1,6 +1,7 @@
 # wget https://github.com/liugnggh71/lld/raw/main/wget_lld.sh
 pwd=$(pwd)
-mkdir -p ${pwd}/dba_code/bin
+cd ${pwd}
+mkdir -p dba_code/bin
 cd ${pwd}/dba_code/bin
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/lld
 chmod u+x lld
