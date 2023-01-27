@@ -110,7 +110,7 @@
         </xsl:if>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
-    
+
     <xsl:template match="header">
         <xsl:variable name="v_desc">
             <xsl:text># </xsl:text>
@@ -123,8 +123,8 @@
             <xsl:text>COMMENT</xsl:text>
             <xsl:value-of select="$v_newline"/>
         </xsl:variable>
-        
-        <xsl:if test=" string-length(shebang) &gt; 0">
+
+        <xsl:if test="string-length(shebang) &gt; 0">
             <xsl:text>#!</xsl:text>
             <xsl:value-of select="shebang"/>
             <xsl:value-of select="$v_newline"/>
@@ -135,7 +135,7 @@
         <xsl:value-of select="functx:repeat-string('#', 80)"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
-   
+
 
     <xsl:template name="dump_all">
         <xsl:result-document href="dump_all.xml" method="xml" indent="yes">
@@ -145,6 +145,7 @@
 
     <xsl:template match="/">
         <xsl:call-template name="dump_all"/>
+        <xsl:call-template name="wget"/>
         <xsl:for-each select="/bash_codes//bash_code">
             <xsl:variable name="v_stage_dir">
                 <xsl:choose>
@@ -180,26 +181,26 @@
         <xsl:text>#</xsl:text>
         <xsl:value-of select="@desc"/>
         <xsl:value-of select="$v_newline"/>
-        
+
         <xsl:value-of select="$v_indent_string"/>
         <xsl:text>#</xsl:text>
         <xsl:for-each select="1 to string-length(@desc)">
             <xsl:text>R</xsl:text>
         </xsl:for-each>
         <xsl:value-of select="$v_newline"/>
-        
+
         <xsl:value-of select="$v_indent_string"/>
         <xsl:text>echo "</xsl:text>
         <xsl:value-of select="@desc"/>
         <xsl:text>"</xsl:text>
         <xsl:value-of select="$v_newline"/>
-        
+
         <xsl:value-of select="$v_newline"/>
         <xsl:value-of select="$v_indent_string"/>
         <xsl:value-of select="."/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
-    
+
     <xsl:template match="exit">
         <xsl:variable name="v_indent_string">
             <xsl:call-template name="get_indent"/>
@@ -210,7 +211,7 @@
             <xsl:value-of select="."/>
             <xsl:value-of select="$v_newline"/>
         </xsl:variable>
-        
+
         <xsl:variable name="v_XX">
             <xsl:value-of select="$v_indent_string"/>
             <xsl:text>#</xsl:text>
@@ -219,7 +220,7 @@
             </xsl:for-each>
             <xsl:value-of select="$v_newline"/>
         </xsl:variable>
-        
+
         <xsl:value-of select="$v_newline"/>
         <xsl:value-of select="$v_XX"/>
         <xsl:value-of select="$v_exit"/>
@@ -244,12 +245,13 @@
         <xsl:variable name="v_indent_string">
             <xsl:call-template name="get_indent"/>
         </xsl:variable>
-        
-<!--        <xsl:if test="../name() = 'if_block' and count(preceding-sibling::test) = 0">
+
+        <!--        <xsl:if test="../name() = 'if_block' and count(preceding-sibling::test) = 0">
             <xsl:value-of select="$v_indent_string"/>
             <xsl:text>if </xsl:text>
         </xsl:if>
--->        <xsl:if test="../name() = 'if_block' and count(preceding-sibling::test) > 0">
+-->
+        <xsl:if test="../name() = 'if_block' and count(preceding-sibling::test) > 0">
             <xsl:value-of select="$v_indent_string"/>
             <xsl:text>elif </xsl:text>
         </xsl:if>
@@ -267,7 +269,7 @@
                 <xsl:text> do</xsl:text>
             </xsl:when>
         </xsl:choose>
-        
+
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
     <xsl:template match="operand">
@@ -351,7 +353,7 @@
         <xsl:variable name="v_indent_string">
             <xsl:call-template name="get_indent"/>
         </xsl:variable>
-        
+
         <xsl:if test="@wrapper and (@position = 'both' or @position = 'front')">
             <xsl:value-of select="$v_newline"/>
             <xsl:value-of select="$v_indent_string"/>
@@ -373,7 +375,7 @@
             <xsl:value-of select="$v_newline"/>
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="steps">
         <xsl:for-each select="*">
             <xsl:apply-templates select="."/>
@@ -383,6 +385,55 @@
         <xsl:value-of select="$v_newline"/>
         <xsl:value-of select="."/>
     </xsl:template>
-    
-    
+
+    <xsl:template name="wget">
+        <xsl:variable name="f_wget" select="wget_lld.sh"/>
+        <xsl:variable name="v_git_url" select="/bash_codes/@git"/>
+        <xsl:result-document href="wget_lld.sh" method="text">
+            <xsl:text><![CDATA[# wget https://github.com/liugnggh71/lld/raw/main/wget_lld.sh]]></xsl:text>
+            <xsl:value-of select="$v_newline"/>
+            
+            <xsl:text><![CDATA[pwd=$(pwd)]]></xsl:text>
+            <xsl:value-of select="$v_newline"/>
+
+            <xsl:for-each-group select="//bash_code[@name]" group-by="@subdir">
+                <xsl:variable name="v_subdir" select="./@subdir"> </xsl:variable>
+                <xsl:text>mkdir -p ${pwd}/</xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>cd ${pwd}/</xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:for-each select="current-group()">
+                    <xsl:text>wget </xsl:text>
+                    <xsl:value-of select="$v_git_url"/>
+                    <xsl:text>/</xsl:text>
+                    <xsl:value-of select="@subdir"/>
+                    <xsl:text>/</xsl:text>
+                    <xsl:value-of select="@name"/>
+                    <xsl:value-of select="$v_newline"/>
+
+                    <xsl:text>chmod u+x </xsl:text>
+                    <xsl:value-of select="@name"/>
+                    <xsl:value-of select="$v_newline"/>
+                </xsl:for-each>
+            </xsl:for-each-group>
+
+            <xsl:for-each-group select="//bash_code[@symbolic_link]" group-by="@subdir">
+                <xsl:variable name="v_subdir" select="./@subdir"> </xsl:variable>
+                <xsl:text>cd ${pwd}/</xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:for-each select="current-group()">
+                    <xsl:text>ln -s </xsl:text>
+                    <xsl:value-of select="./@name"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="./@symbolic_link"/>
+                    <xsl:value-of select="$v_newline"/>
+                </xsl:for-each>
+            </xsl:for-each-group>
+        </xsl:result-document>
+    </xsl:template>
+
+
 </xsl:stylesheet>
