@@ -420,7 +420,12 @@
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo cd </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
-                <xsl:text> &gt; cd_dba_code_bin.sh</xsl:text>
+                <xsl:choose>
+                    <xsl:when test="position() gt 1">
+                        <xsl:text>&gt;</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+                <xsl:text>&gt; cd_dba_code_bin.sh</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 
                 <xsl:text>echo ln -s cd_dba_code_bin.sh BN</xsl:text>
