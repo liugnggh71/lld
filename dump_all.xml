@@ -14,6 +14,9 @@
       <wget_zip>https://github.com/Saxonica/Saxon-HE/raw/main/11/Java/SaxonHE11-4J.zip</wget_zip>
       <commands>
          <command>
+            <set_pwd/>
+         </command>
+         <command>
             <mkdir_stage/>
          </command>
          <command>
@@ -30,6 +33,9 @@
          </command>
          <command>
             <cp_single_pick copy_from="saxon-he-11.4.jar"/>
+         </command>
+         <command>
+            <cd_pwd/>
          </command>
       </commands>
    </binary>

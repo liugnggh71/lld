@@ -45,6 +45,16 @@
         </xsl:result-document>
     </xsl:template>
 
+    <xsl:template match="set_pwd">
+        <xsl:text>pwd=$(pwd)</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+    </xsl:template>
+    
+    <xsl:template match="cd_pwd">
+        <xsl:text>cd $(pwd)</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+    </xsl:template>
+    
     <xsl:template match="mkdir_stage">
         <xsl:variable name="v_stage_dir" select="../../../stage_dir"/>
         <xsl:text>mkdir -p </xsl:text>
@@ -83,7 +93,7 @@
         <xsl:variable name="v_install_file_name" select="../../../@name"/>
         <xsl:text>cp -p </xsl:text>
         <xsl:value-of select="@copy_from"/>
-        <xsl:text> </xsl:text>
+        <xsl:text> $(pwd)/</xsl:text>
         <xsl:value-of select="$v_install_file_name"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
