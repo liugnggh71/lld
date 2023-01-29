@@ -91,9 +91,13 @@
     <xsl:template match="cp_single_pick">
         <xsl:variable name="v_stage_dir" select="../../../wget_zip"/>
         <xsl:variable name="v_install_file_name" select="../../../@name"/>
+        <xsl:variable name="v_subdir" select="../../../@subdir"/>
+        
         <xsl:text>cp -p </xsl:text>
         <xsl:value-of select="@copy_from"/>
         <xsl:text> ${pwd}/</xsl:text>
+        <xsl:value-of select="$v_stage_dir"/>
+        <xsl:text>/</xsl:text>
         <xsl:value-of select="$v_install_file_name"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
