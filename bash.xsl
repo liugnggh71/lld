@@ -387,10 +387,14 @@
     </xsl:template>
 
     <xsl:template name="wget">
-        <xsl:variable name="f_wget" select="wget_lld.sh"/>
+        <xsl:variable name="f_wget" select="/bash_codes/wget_stage_code"/>
         <xsl:variable name="v_git_url" select="/bash_codes/@git"/>
-        <xsl:result-document href="wget_lld.sh" method="text">
-            <xsl:text><![CDATA[# wget https://github.com/liugnggh71/lld/raw/main/wget_lld.sh]]></xsl:text>
+        <xsl:result-document href="{$f_wget}" method="text">
+            <xsl:text># wget </xsl:text>
+            <xsl:value-of select="$v_git_url"/>
+            <xsl:text>/</xsl:text>
+            <xsl:value-of select="$f_wget"/>
+            <xsl:value-of select="$v_newline"/>
             <xsl:value-of select="$v_newline"/>
             
             <xsl:text><![CDATA[pwd=$(pwd)]]></xsl:text>
@@ -403,7 +407,7 @@
                 <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
-                <xsl:text>echo -n export PATH=${pwd}/</xsl:text>
+                <xsl:text>echo -n export PATH=\${HOME}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:text> &gt; profile.txt</xsl:text>
                 <xsl:value-of select="$v_newline"/>

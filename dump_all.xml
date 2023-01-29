@@ -3,6 +3,7 @@
 <!-- Driver XML -->
 <bash_codes xmlns:xi="http://www.w3.org/2001/XInclude"
             git="https://github.com/liugnggh71/lld/raw/main">
+   <wget_stage_code>wget_lld.sh</wget_stage_code>
    <bash_code name="lld"
               subdir="dba_code/bin"
               symbolic_link="D"
