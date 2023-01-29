@@ -12,6 +12,9 @@
             <cd_stage/>
         </command>
         <command>
+            <rm_wget_zip/>
+        </command>
+        <command>
             <wget_zip/>
         </command>
         <command>

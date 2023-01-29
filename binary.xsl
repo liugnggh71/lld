@@ -64,11 +64,18 @@
         <xsl:value-of select="$v_stage_dir"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
+    <xsl:template match="rm_wget_zip">
+        <xsl:variable name="v_stage_zip"
+            select="functx:substring-after-last(../../../wget_zip, '/')"/>
+        <xsl:text>rm -f </xsl:text>
+        <xsl:value-of select="$v_stage_zip"/>
+        <xsl:value-of select="$v_newline"/>
+    </xsl:template>
     <xsl:template match="unzip_wget_zip">
-        <xsl:variable name="v_stage_dir"
+        <xsl:variable name="v_stage_zip"
             select="functx:substring-after-last(../../../wget_zip, '/')"/>
         <xsl:text>unzip </xsl:text>
-        <xsl:value-of select="$v_stage_dir"/>
+        <xsl:value-of select="$v_stage_zip"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
     <xsl:template match="cp_single_pick">
