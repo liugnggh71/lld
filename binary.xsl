@@ -93,7 +93,7 @@
         <xsl:variable name="v_install_file_name" select="../../../@name"/>
         <xsl:text>cp -p </xsl:text>
         <xsl:value-of select="@copy_from"/>
-        <xsl:text> $(pwd)/</xsl:text>
+        <xsl:text> ${pwd}/</xsl:text>
         <xsl:value-of select="$v_install_file_name"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
