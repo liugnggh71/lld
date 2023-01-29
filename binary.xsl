@@ -111,4 +111,12 @@
             <xsl:apply-templates select="."/>
         </xsl:for-each>
     </xsl:template>
+    <xsl:template match="saxon_class_path">
+        <xsl:text>cat &lt;&lt; 'EOC'</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+        <xsl:text>export CLASSPATH=$HOME/dba_code/bin/saxon_he_stable.jar</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+        <xsl:text>EOC</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+    </xsl:template>
 </xsl:stylesheet>

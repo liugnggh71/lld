@@ -7,5 +7,6 @@
         <wget_stage_code>install_binary_lld.sh</wget_stage_code>
     </stage>
     <xi:include href="code/binary/Saxon-HE_Java.xml"/>
- 
+    <xi:include href="code/binary/SqlCL.xml"/>
+    
 </binarys>
