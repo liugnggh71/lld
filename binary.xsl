@@ -96,7 +96,7 @@
         <xsl:text>cp -p </xsl:text>
         <xsl:value-of select="@copy_from"/>
         <xsl:text> ${pwd}/</xsl:text>
-        <xsl:value-of select="$v_stage_dir"/>
+        <xsl:value-of select="$v_subdir"/>
         <xsl:text>/</xsl:text>
         <xsl:value-of select="$v_install_file_name"/>
         <xsl:value-of select="$v_newline"/>
