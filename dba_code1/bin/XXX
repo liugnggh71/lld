@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+#!/bin/sh
+################################################################################
+# XXX
+<<COMMENT
+Run Saxon XSLT transformer with 1 parameter
+COMMENT
+################################################################################
 
-<bash_code name="XXX" subdir="dba_code1/bin">
-    <header>
-        <shebang>/bin/sh</shebang>
-        <desc>Run Saxon XSLT transformer with 1 parameter</desc>
-    </header>
-    <full_code><![CDATA[cat << 'EOF'
+cat << 'EOF'
 ======================================================
 java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
 ======================================================
 EOF
 echo java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
 java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
-]]>
-    </full_code>
-</bash_code>
+
+    

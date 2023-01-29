@@ -107,7 +107,7 @@ java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
 
     </full_code>
    </bash_code>
-   <bash_code name="XXX" subdir="dba_code/bin" xml:base="code/bash/XXX.xml">
+   <bash_code name="XXX" subdir="dba_code1/bin" xml:base="code/bash/XXX.xml">
       <header>
          <shebang>/bin/sh</shebang>
          <desc>Run Saxon XSLT transformer with 1 parameter</desc>
