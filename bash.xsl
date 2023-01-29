@@ -409,7 +409,12 @@
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo -n export PATH=\${HOME}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
-                <xsl:text> &gt; profile.txt</xsl:text>
+                <xsl:choose>
+                    <xsl:when test="position() gt 1">
+                        <xsl:text>&gt;</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+                <xsl:text>&gt; profile.txt</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo ':${PATH}' >> profile.txt </xsl:text>
                 <xsl:value-of select="$v_newline"/>
