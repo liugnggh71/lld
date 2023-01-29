@@ -3,6 +3,9 @@
 <!-- Driver XML -->
 
 <binarys xmlns:xi="http://www.w3.org/2001/XInclude" git="https://github.com/liugnggh71/lld/raw/main">
+    <stage>
+        <wget_stage_code>install_binary_lld.sh</wget_stage_code>
+    </stage>
     <xi:include href="code/binary/Saxon-HE_Java.xml"/>
  
 </binarys>

@@ -3,7 +3,9 @@
 <!-- Driver XML -->
 
 <bash_codes xmlns:xi="http://www.w3.org/2001/XInclude" git="https://github.com/liugnggh71/lld/raw/main">
-    <wget_stage_code>wget_lld.sh</wget_stage_code>
+    <stage>
+        <wget_stage_code>wget_lld.sh</wget_stage_code>
+    </stage>
     <xi:include href="code/bash/lld.xml"/>
     <xi:include href="code/bash/llf.xml"/>
     <xi:include href="code/bash/lll.xml"/>

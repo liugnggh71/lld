@@ -6,6 +6,8 @@
     <xsl:variable name="v_newline">
         <xsl:text>&#xa;</xsl:text>
     </xsl:variable>
+    
+    <xsl:variable name="v_wget_stage_code" select="//binarys/stage/wget_stage_code"/>
 
     <xsl:function name="functx:substring-after-last" as="xs:string"
         xmlns:functx="http://www.functx.com">
@@ -30,7 +32,7 @@
 
     <xsl:template match="/">
         <xsl:call-template name="dump_all"/>
-        <xsl:result-document href="install_binary_lld.sh" method="text">
+        <xsl:result-document href="{$v_wget_stage_code}" method="text">
             <xsl:for-each select="//binary/commands">
                 <xsl:apply-templates select="."/>
             </xsl:for-each>

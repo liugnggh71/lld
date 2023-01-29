@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="stage.xsl"?>
+
+<stage xmlns:xi="http://www.w3.org/2001/XInclude" git="https://github.com/liugnggh71/lld/raw/main">
+    <xi:include  href="bash_codes.xml"></xi:include>
+    <xi:include  href="binarys.xml"></xi:include>
+</stage>

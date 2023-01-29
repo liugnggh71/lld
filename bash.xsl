@@ -387,7 +387,7 @@
     </xsl:template>
 
     <xsl:template name="wget">
-        <xsl:variable name="f_wget" select="/bash_codes/wget_stage_code"/>
+        <xsl:variable name="f_wget" select="/bash_codes/stage/wget_stage_code"/>
         <xsl:variable name="v_git_url" select="/bash_codes/@git"/>
         <xsl:result-document href="{$f_wget}" method="text">
             <xsl:text># wget </xsl:text>
