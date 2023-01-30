@@ -26,5 +26,8 @@
         <command>
             <cd_pwd/>
         </command>
+        <command>
+            <export_path leading_path="${HOME}/dba_code/bin/sqlcl/bin"></export_path>
+        </command>
     </commands>
 </binary>

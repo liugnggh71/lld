@@ -6,7 +6,7 @@ wget https://github.com/Saxonica/Saxon-HE/raw/main/11/Java/SaxonHE11-4J.zip
 unzip SaxonHE11-4J.zip
 cp -p saxon-he-11.4.jar ${pwd}/dba_code/bin/saxon_he_stable.jar
 cd ${pwd}
-cat << 'EOC'
+cat << 'EOC' >> dba_code/bin/profile.txt
 export CLASSPATH=$HOME/dba_code/bin/saxon_he_stable.jar
 EOC
 pwd=$(pwd)
@@ -16,3 +16,6 @@ rm -f sqlcl-latest.zip
 wget https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
 cp -p sqlcl-latest.zip ${pwd}/dba_code/bin/sqlcl-latest.zip
 cd ${pwd}
+cat << 'EOC' >> dba_code/bin/profile.txt
+export PATH=${HOME}/dba_code/bin/sqlcl/bin:$PATH
+EOC

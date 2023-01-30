@@ -3,7 +3,7 @@
 pwd=$(pwd)
 cd ${pwd}
 mkdir -p dba_code/bin
-echo -n export PATH=\${HOME}/dba_code/bin> profile.txt
+echo -n export PATH=\${HOME}/dba_code/bin> dba_code/bin/profile.txt
 echo ':${PATH}' >> profile.txt 
 echo cd dba_code/bin> cd_dba_code_bin.sh
 echo ln -s cd_dba_code_bin.sh BN > ln_bn.sh

@@ -112,9 +112,29 @@
         </xsl:for-each>
     </xsl:template>
     <xsl:template match="saxon_class_path">
-        <xsl:text>cat &lt;&lt; 'EOC'</xsl:text>
+        <xsl:variable name="v_subdir" select="../../../@subdir"/>
+        <xsl:variable name="v_install_file_name" select="../../../@name"/>
+        <xsl:text>cat &lt;&lt; 'EOC' &gt;&gt; </xsl:text>
+        <xsl:value-of select="$v_subdir"/>
+        <xsl:text>/profile.txt</xsl:text>
         <xsl:value-of select="$v_newline"/>
-        <xsl:text>export CLASSPATH=$HOME/dba_code/bin/saxon_he_stable.jar</xsl:text>
+        <xsl:text>export CLASSPATH=$HOME/</xsl:text>
+        <xsl:value-of select="$v_subdir"/>
+        <xsl:text>/</xsl:text>
+        <xsl:value-of select="$v_install_file_name"/>
+        <xsl:value-of select="$v_newline"/>
+        <xsl:text>EOC</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+    </xsl:template>
+    <xsl:template match="export_path">
+        <xsl:variable name="v_subdir" select="../../../@subdir"/>
+        <xsl:text>cat &lt;&lt; 'EOC' &gt;&gt; </xsl:text>
+        <xsl:value-of select="$v_subdir"/>
+        <xsl:text>/profile.txt</xsl:text>
+        <xsl:value-of select="$v_newline"/>
+        <xsl:text>export PATH=</xsl:text>
+        <xsl:value-of select="@leading_path"/>
+        <xsl:text>:$PATH</xsl:text>
         <xsl:value-of select="$v_newline"/>
         <xsl:text>EOC</xsl:text>
         <xsl:value-of select="$v_newline"/>

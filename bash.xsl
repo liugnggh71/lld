@@ -414,7 +414,10 @@
                         <xsl:text>&gt;</xsl:text>
                     </xsl:when>
                 </xsl:choose>
-                <xsl:text>&gt; profile.txt</xsl:text>
+                <xsl:text>&gt; </xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text>/</xsl:text>
+                <xsl:text>profile.txt</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo ':${PATH}' >> profile.txt </xsl:text>
                 <xsl:value-of select="$v_newline"/>
