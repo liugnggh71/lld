@@ -6,7 +6,7 @@
     <xsl:variable name="v_newline">
         <xsl:text>&#xa;</xsl:text>
     </xsl:variable>
-    
+
     <xsl:variable name="v_git_source" select="/stage/@git"/>
 
     <xsl:function name="functx:substring-after-last" as="xs:string"
@@ -33,18 +33,36 @@
     <xsl:template match="/">
         <xsl:call-template name="dump_all"/>
         <xsl:call-template name="master_stage"/>
-    </xsl:template>
-    
-    <xsl:template name="master_stage">
-        <xsl:result-document href="master_install.sh" method="text">
-            <xsl:for-each select="//install_zip">
-                <xsl:text>wget </xsl:text>
-                <xsl:value-of select="."/>
+        <xsl:result-document href="install_ssh.sh" method="text">
+            <xsl:for-each select="//Installs/install">
+                <xsl:text>ssh opc@</xsl:text>
+                <xsl:value-of select="ip"/>
                 <xsl:value-of select="$v_newline"/>
             </xsl:for-each>
         </xsl:result-document>
+    </xsl:template>
+
+    <xsl:template name="master_stage">
+        <xsl:result-document href="master_install.sh" method="text">
+            
+            <xsl:for-each select="//install_zip">
+                <xsl:variable name="v_zip_file" select="functx:substring-after-last(., '/')"></xsl:variable>
+                <xsl:text>wget </xsl:text>
+                <xsl:value-of select="."/>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:for-each select="//Installs/install">
+                    <xsl:text>scp </xsl:text>
+                    <xsl:value-of select="$v_zip_file"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="ip"/>
+                    <xsl:text>:/tmp</xsl:text>
+                    <xsl:value-of select="$v_newline"/>
+                </xsl:for-each>
+                
+            </xsl:for-each>
+        </xsl:result-document>
         <xsl:result-document href="master_stage.sh" method="text">
-            <xsl:text>cat &lt;&lt; EOC</xsl:text>
+            <xsl:text>cat &lt;&lt; EOC &gt; download.sh</xsl:text>
             <xsl:value-of select="$v_newline"/>
             <xsl:text>sh &lt;&lt; EOS</xsl:text>
             <xsl:value-of select="$v_newline"/>
@@ -76,11 +94,17 @@
             <xsl:value-of select="$v_newline"/>
             <xsl:text>EOC</xsl:text>
             <xsl:value-of select="$v_newline"/>
+            <xsl:text>chmod u+x download.sh</xsl:text>
+            <xsl:value-of select="$v_newline"/>
+            <xsl:text>./download.sh</xsl:text>
+            <xsl:value-of select="$v_newline"/>
             <xsl:for-each select="//stage/wget_stage_code">
                 <xsl:text>./</xsl:text>
                 <xsl:value-of select="."/>
                 <xsl:value-of select="$v_newline"/>
             </xsl:for-each>
+            <xsl:value-of select="//prepare_zip_cmd"/>
+            <xsl:value-of select="$v_newline"/>
         </xsl:result-document>
     </xsl:template>
 

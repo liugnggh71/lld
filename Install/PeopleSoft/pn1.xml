@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<install>
+    <host>bswexadbt02-1kjpk1.pvtppdbnp.pvtpp.oraclevcn.com</host>
+    <ip>10.21.5.50</ip>
+    <user>opc</user>
+    <key_file>id_rsa</key_file>
+    <stage>bsworaredhat01.bhcs.pvt</stage>
+</install>

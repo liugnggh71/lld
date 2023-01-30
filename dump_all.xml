@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="stage.xsl"?>
 <stage xmlns:xi="http://www.w3.org/2001/XInclude"
        git="https://github.com/liugnggh71/lld/raw/main">
+   <prepare_zip_cmd>zip -ry dba_code_bin.zip dba_code</prepare_zip_cmd>
    <install_zip>https://github.com/liugnggh71/lld/raw/main/Install/dba_code_bin.zip</install_zip>
    <?xml-stylesheet type="text/xsl" href="bash.xsl"?>
    <!-- Driver XML -->
@@ -205,4 +206,62 @@ java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
          </commands>
       </binary>
    </binarys>
+   <Installs xml:base="Install_targets.xml">
+      <install xml:base="Install/PeopleSoft/pn1.xml">
+         <host>bswexadbt02-1kjpk1.pvtppdbnp.pvtpp.oraclevcn.com</host>
+         <ip>10.21.5.50</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pn2.xml">
+         <host>bswexadbt02-1kjpk2.pvtppdbnp.pvtpp.oraclevcn.com</host>
+         <ip>10.21.5.38</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pp1.xml">
+         <host>bswexadbp01-rlmu81.pvtppproddb1021.phxpvtppprod.oraclevcn.com</host>
+         <ip>10.21.133.2</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pp2.xml">
+         <host>bswexadbp01-rlmu82.pvtppproddb1021.phxpvtppprod.oraclevcn.com</host>
+         <ip>10.21.133.3</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pq1.xml">
+         <host>bswexadbp02-5cfwx1.pvtppproddb02.phxpvtppprod.oraclevcn.com</host>
+         <ip>10.21.133.44</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pq2.xml">
+         <host>bswexadbp02-5cfwx2.pvtppproddb02.phxpvtppprod.oraclevcn.com</host>
+         <ip>10.21.133.35</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pt1.xml">
+         <host>bswexadbt01-q8ebk1.pvtppnonprod102.pvtpp.oraclevcn.com</host>
+         <ip>10.21.5.2</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+      <install xml:base="Install/PeopleSoft/pt2.xml">
+         <host>bswexadbt01-q8ebk2.pvtppnonprod102.pvtpp.oraclevcn.com</host>
+         <ip>10.21.5.3</ip>
+         <user>opc</user>
+         <key_file>id_rsa</key_file>
+         <stage>bsworaredhat01.bhcs.pvt</stage>
+      </install>
+   </Installs>
 </stage>

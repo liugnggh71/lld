@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Installs xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="Install/PeopleSoft/pn1.xml"/>
+    <xi:include href="Install/PeopleSoft/pn2.xml"/>
+    <xi:include href="Install/PeopleSoft/pp1.xml"/>
+    <xi:include href="Install/PeopleSoft/pp2.xml"/>
+    <xi:include href="Install/PeopleSoft/pq1.xml"/>
+    <xi:include href="Install/PeopleSoft/pq2.xml"/>
+    <xi:include href="Install/PeopleSoft/pt1.xml"/>
+    <xi:include href="Install/PeopleSoft/pt2.xml"/>
+</Installs>

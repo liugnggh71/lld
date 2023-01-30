@@ -2,7 +2,9 @@
 <?xml-stylesheet type="text/xsl" href="stage.xsl"?>
 
 <stage xmlns:xi="http://www.w3.org/2001/XInclude" git="https://github.com/liugnggh71/lld/raw/main">
+    <prepare_zip_cmd>zip -ry dba_code_bin.zip dba_code</prepare_zip_cmd>
     <install_zip>https://github.com/liugnggh71/lld/raw/main/Install/dba_code_bin.zip</install_zip>
-    <xi:include  href="bash_codes.xml"></xi:include>
-    <xi:include  href="binarys.xml"></xi:include>
+    <xi:include href="bash_codes.xml"/>
+    <xi:include href="binarys.xml"/>
+    <xi:include href="Install_targets.xml"/>
 </stage>
