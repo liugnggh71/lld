@@ -32,6 +32,17 @@
 
     <xsl:template match="/">
         <xsl:call-template name="dump_all"/>
+        <xsl:call-template name="master_stage"/>
+    </xsl:template>
+    
+    <xsl:template name="master_stage">
+        <xsl:result-document href="master_install.sh" method="text">
+            <xsl:for-each select="//install_zip">
+                <xsl:text>wget </xsl:text>
+                <xsl:value-of select="."/>
+                <xsl:value-of select="$v_newline"/>
+            </xsl:for-each>
+        </xsl:result-document>
         <xsl:result-document href="master_stage.sh" method="text">
             <xsl:text>cat &lt;&lt; EOC</xsl:text>
             <xsl:value-of select="$v_newline"/>

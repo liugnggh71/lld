@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="bash.xsl"?>
-<!-- Driver XML -->
-<bash_codes xmlns:xi="http://www.w3.org/2001/XInclude"
-            git="https://github.com/liugnggh71/lld/raw/main">
-   <stage>
-      <wget_stage_code>wget_lld.sh</wget_stage_code>
-   </stage>
-   <bash_code name="lld"
-              subdir="dba_code/bin"
-              symbolic_link="D"
-              xml:base="code/bash/lld.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>List sub-directory under current directory</desc>
-      </header>
-      <run desc="List sub-directory" indent="1">ls -l ${1:-.} | grep ^d</run>
-   </bash_code>
-   <bash_code name="llf"
-              subdir="dba_code/bin"
-              symbolic_link="F"
-              xml:base="code/bash/llf.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>List files under current directory</desc>
-      </header>
-      <run desc="List files" indent="1">ls -l ${1:-.} | grep ^-</run>
-   </bash_code>
-   <bash_code name="lll"
-              subdir="dba_code/bin"
-              symbolic_link="L"
-              xml:base="code/bash/lll.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>List sub-directory under current directory</desc>
-      </header>
-      <run desc="List symbolic link" indent="1">ls -l ${1:-.} | grep ^l</run>
-   </bash_code>
-   <bash_code name="b1f" subdir="dba_code/bin" xml:base="code/bash/b1f.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>Make a local backup of a single file</desc>
-      </header>
-      <if_block>
-         <test>
-            <operand type="variable">#</operand>
-            <operator>NumberLess</operator>
-            <operand type="arithmetic">1</operand>
-         </test>
-         <steps indent="1">
-            <echo position="both" wrapper="#">USAGE: b1f file_name</echo>
-            <exit>11</exit>
-         </steps>
-      </if_block>
-      <full_code>mkdir -p bk
+<?xml-stylesheet type="text/xsl" href="stage.xsl"?>
+<stage xmlns:xi="http://www.w3.org/2001/XInclude"
+       git="https://github.com/liugnggh71/lld/raw/main">
+   <install_zip>https://github.com/liugnggh71/lld/raw/main/Install/dba_code_bin.zip</install_zip>
+   <?xml-stylesheet type="text/xsl" href="bash.xsl"?>
+   <!-- Driver XML -->
+   <bash_codes git="https://github.com/liugnggh71/lld/raw/main"
+               xml:base="bash_codes.xml">
+      <stage>
+         <wget_stage_code>wget_lld.sh</wget_stage_code>
+      </stage>
+      <bash_code name="lld"
+                 subdir="dba_code/bin"
+                 symbolic_link="D"
+                 xml:base="code/bash/lld.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>List sub-directory under current directory</desc>
+         </header>
+         <run desc="List sub-directory" indent="1">ls -l ${1:-.} | grep ^d</run>
+      </bash_code>
+      <bash_code name="llf"
+                 subdir="dba_code/bin"
+                 symbolic_link="F"
+                 xml:base="code/bash/llf.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>List files under current directory</desc>
+         </header>
+         <run desc="List files" indent="1">ls -l ${1:-.} | grep ^-</run>
+      </bash_code>
+      <bash_code name="lll"
+                 subdir="dba_code/bin"
+                 symbolic_link="L"
+                 xml:base="code/bash/lll.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>List sub-directory under current directory</desc>
+         </header>
+         <run desc="List symbolic link" indent="1">ls -l ${1:-.} | grep ^l</run>
+      </bash_code>
+      <bash_code name="b1f" subdir="dba_code/bin" xml:base="code/bash/b1f.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>Make a local backup of a single file</desc>
+         </header>
+         <if_block>
+            <test>
+               <operand type="variable">#</operand>
+               <operator>NumberLess</operator>
+               <operand type="arithmetic">1</operand>
+            </test>
+            <steps indent="1">
+               <echo position="both" wrapper="#">USAGE: b1f file_name</echo>
+               <exit>11</exit>
+            </steps>
+         </if_block>
+         <full_code>mkdir -p bk
 cp -p ${1} bk/${1}.$(date +%Y_%m_%d_%H_%M_%S)
 ls -ltr bk | tail -n 10
 
     </full_code>
-   </bash_code>
-   <bash_code name="lnc" subdir="dba_code/bin" xml:base="code/bash/lnc.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>Generate symbolic creation code</desc>
-      </header>
-      <full_code>echo "" &gt; ln_s.sh
+      </bash_code>
+      <bash_code name="lnc" subdir="dba_code/bin" xml:base="code/bash/lnc.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>Generate symbolic creation code</desc>
+         </header>
+         <full_code>echo "" &gt; ln_s.sh
 while IFS= read -r line
 do
   ## Debugging lines
@@ -78,13 +82,13 @@ do
 done &lt;&lt; ( ls -l | grep ^l )
 
     </full_code>
-   </bash_code>
-   <bash_code name="SAX" subdir="dba_code/bin" xml:base="code/bash/SAX.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>Run Saxon XSLT transformer with 2 parameter</desc>
-      </header>
-      <full_code>cat &lt;&lt; 'EOF'
+      </bash_code>
+      <bash_code name="SAX" subdir="dba_code/bin" xml:base="code/bash/SAX.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>Run Saxon XSLT transformer with 2 parameter</desc>
+         </header>
+         <full_code>cat &lt;&lt; 'EOF'
 ======================================================
 java net.sf.saxon.Transform  -s:${1} -a:on -o:${2} -xi:on
 ======================================================
@@ -93,13 +97,13 @@ echo java net.sf.saxon.Transform  -s:${1} -a:on -o:${2} -xi:on
 java net.sf.saxon.Transform  -s:${1} -a:on -xi:on -o:${2}
 
     </full_code>
-   </bash_code>
-   <bash_code name="SAXON" subdir="dba_code/bin" xml:base="code/bash/SAXON.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>Run Saxon XSLT transformer with 3 parameters</desc>
-      </header>
-      <full_code>cat &lt;&lt; 'EOF'
+      </bash_code>
+      <bash_code name="SAXON" subdir="dba_code/bin" xml:base="code/bash/SAXON.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>Run Saxon XSLT transformer with 3 parameters</desc>
+         </header>
+         <full_code>cat &lt;&lt; 'EOF'
 ======================================================
 java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
 ======================================================
@@ -108,13 +112,13 @@ echo java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
 java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
 
     </full_code>
-   </bash_code>
-   <bash_code name="XXX" subdir="dba_code/bin" xml:base="code/bash/XXX.xml">
-      <header>
-         <shebang>/bin/sh</shebang>
-         <desc>Run Saxon XSLT transformer with 1 parameter</desc>
-      </header>
-      <full_code>cat &lt;&lt; 'EOF'
+      </bash_code>
+      <bash_code name="XXX" subdir="dba_code/bin" xml:base="code/bash/XXX.xml">
+         <header>
+            <shebang>/bin/sh</shebang>
+            <desc>Run Saxon XSLT transformer with 1 parameter</desc>
+         </header>
+         <full_code>cat &lt;&lt; 'EOF'
 ======================================================
 java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
 ======================================================
@@ -123,5 +127,82 @@ echo java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
 java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
 
     </full_code>
-   </bash_code>
-</bash_codes>
+      </bash_code>
+   </bash_codes>
+   <?xml-stylesheet type="text/xsl" href="binary.xsl"?>
+   <!-- Driver XML -->
+   <binarys git="https://github.com/liugnggh71/lld/raw/main" xml:base="binarys.xml">
+      <stage>
+         <wget_stage_code>install_binary_lld.sh</wget_stage_code>
+      </stage>
+      <binary name="saxon_he_stable.jar"
+              subdir="dba_code/bin"
+              xml:base="code/binary/Saxon-HE_Java.xml">
+         <version>11.4</version>
+         <stage_dir>/tmp/saxon_he</stage_dir>
+         <wget_zip>https://github.com/Saxonica/Saxon-HE/raw/main/11/Java/SaxonHE11-4J.zip</wget_zip>
+         <commands>
+            <command>
+               <set_pwd/>
+            </command>
+            <command>
+               <mkdir_stage/>
+            </command>
+            <command>
+               <cd_stage/>
+            </command>
+            <command>
+               <rm_wget_zip/>
+            </command>
+            <command>
+               <wget_zip/>
+            </command>
+            <command>
+               <unzip_wget_zip/>
+            </command>
+            <command>
+               <cp_single_pick copy_from="saxon-he-11.4.jar"/>
+            </command>
+            <command>
+               <cd_pwd/>
+            </command>
+            <command>
+               <saxon_class_path/>
+            </command>
+         </commands>
+      </binary>
+      <binary name="sqlcl-latest.zip"
+              subdir="dba_code/bin"
+              xml:base="code/binary/SqlCL.xml">
+         <version>22.4</version>
+         <stage_dir>/tmp/saxon_he</stage_dir>
+         <wget_zip>https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip</wget_zip>
+         <commands>
+            <command>
+               <set_pwd/>
+            </command>
+            <command>
+               <mkdir_stage/>
+            </command>
+            <command>
+               <cd_stage/>
+            </command>
+            <command>
+               <rm_wget_zip/>
+            </command>
+            <command>
+               <wget_zip/>
+            </command>
+            <command>
+               <cp_single_pick copy_from="sqlcl-latest.zip"/>
+            </command>
+            <command>
+               <cd_pwd/>
+            </command>
+            <command>
+               <export_path leading_path="${HOME}/dba_code/bin/sqlcl/bin"/>
+            </command>
+         </commands>
+      </binary>
+   </binarys>
+</stage>
