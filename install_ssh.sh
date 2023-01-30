@@ -6,3 +6,11 @@ ssh opc@10.21.133.44
 ssh opc@10.21.133.35
 ssh opc@10.21.5.2
 ssh opc@10.21.5.3
+ssh opc@10.21.137.2
+ssh opc@10.21.137.3
+ssh opc@10.21.32.98
+ssh opc@10.21.32.102
+ssh opc@10.21.32.2
+ssh opc@10.21.32.3
+ssh opc@10.21.32.105
+ssh opc@10.21.32.106

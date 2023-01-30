@@ -45,6 +45,9 @@
     <xsl:template name="master_stage">
         <xsl:result-document href="master_install.sh" method="text">
             
+            <xsl:text>sh &lt;&lt; 'EOF'</xsl:text>
+            <xsl:value-of select="$v_newline"/>
+            
             <xsl:for-each select="//install_zip">
                 <xsl:variable name="v_zip_file" select="functx:substring-after-last(., '/')"></xsl:variable>
                 <xsl:text>wget </xsl:text>
@@ -57,9 +60,20 @@
                     <xsl:value-of select="ip"/>
                     <xsl:text>:/tmp</xsl:text>
                     <xsl:value-of select="$v_newline"/>
+                    
+                    <xsl:text>ssh </xsl:text>
+                    <xsl:value-of select="ip"/>
+                    <xsl:text> unzip -o /tmp/</xsl:text>
+                    <xsl:value-of select="$v_zip_file"/>
+                    <xsl:text>  &lt; /dev/null</xsl:text>
+                    <xsl:value-of select="$v_newline"/>
+                    
                 </xsl:for-each>
                 
             </xsl:for-each>
+            <xsl:text>EOF</xsl:text>
+            <xsl:value-of select="$v_newline"/>
+            
         </xsl:result-document>
         <xsl:result-document href="master_stage.sh" method="text">
             <xsl:text>cat &lt;&lt; EOC &gt; download.sh</xsl:text>

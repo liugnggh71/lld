@@ -9,4 +9,12 @@
     <xi:include href="Install/PeopleSoft/pq2.xml"/>
     <xi:include href="Install/PeopleSoft/pt1.xml"/>
     <xi:include href="Install/PeopleSoft/pt2.xml"/>
+    <xi:include href="Install/FirstCare/fg1.xml"/>
+    <xi:include href="Install/FirstCare/fg2.xml"/>
+    <xi:include href="Install/FirstCare/fn1.xml"/>
+    <xi:include href="Install/FirstCare/fn2.xml"/>
+    <xi:include href="Install/FirstCare/fp1.xml"/>
+    <xi:include href="Install/FirstCare/fp2.xml"/>
+    <xi:include href="Install/FirstCare/ft1.xml"/>
+    <xi:include href="Install/FirstCare/ft2.xml"/>
 </Installs>

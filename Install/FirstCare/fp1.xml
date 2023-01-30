@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<install>
+    <host>aupp-hroradb-f9exx1.hlthedgexap.pvthlthedgeprod.oraclevcn.com</host>
+    <ip>10.21.32.2</ip>
+    <user>opc</user>
+    <key_file>id_rsa</key_file>
+    <stage>bsworaredhat01.bhcs.pvt</stage>
+</install>
