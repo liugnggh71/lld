@@ -1,3 +1,30 @@
+# Pack installation zip
+## On host bsworaredhat01
+
+```
+[oracle@bsworaredhat01 8]$ pwd
+/tmp/8
+
+wget https://github.com/liugnggh71/lld/raw/main/master_stage.sh
+. ./master_stage.sh
+```
+
+## On VDI host
+
+Put install file in git repository location
+```
+cd "/drives/c/Users/gangl/OneDrive - Atos/Documents/GitHub/lld/Install/"
+scp bsworaredhat01:/tmp/8/dba_code_bin.zip .
+```
+
+## Update and push git
+Use OxygenXML to push
+
+# Mass install from bsworaredhat01
+
+Run shell block on red01 host block from master_install.sh
+
+```
 sh << 'EOF'
 wget https://github.com/liugnggh71/lld/raw/main/Install/dba_code_bin.zip
 echo ============================================================
@@ -81,3 +108,4 @@ echo ============================================================
 scp dba_code_bin.zip 10.21.32.106:/tmp
 ssh 10.21.32.106 unzip -o /tmp/dba_code_bin.zip  < /dev/null
 EOF
+```

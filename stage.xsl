@@ -54,6 +54,14 @@
                 <xsl:value-of select="."/>
                 <xsl:value-of select="$v_newline"/>
                 <xsl:for-each select="//Installs/install">
+                    <xsl:text>echo ============================================================</xsl:text>
+                    <xsl:value-of select="$v_newline"/>
+                    <xsl:text>echo </xsl:text>
+                    <xsl:value-of select="host"/>
+                    <xsl:value-of select="$v_newline"/>
+                    <xsl:text>echo ============================================================</xsl:text>
+                    <xsl:value-of select="$v_newline"/>
+                    
                     <xsl:text>scp </xsl:text>
                     <xsl:value-of select="$v_zip_file"/>
                     <xsl:text> </xsl:text>
