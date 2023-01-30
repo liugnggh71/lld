@@ -51,7 +51,7 @@
     </xsl:template>
     
     <xsl:template match="cd_pwd">
-        <xsl:text>cd $(pwd)</xsl:text>
+        <xsl:text>cd ${pwd}</xsl:text>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
     
