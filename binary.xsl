@@ -84,7 +84,7 @@
     <xsl:template match="unzip_wget_zip">
         <xsl:variable name="v_stage_zip"
             select="functx:substring-after-last(../../../wget_zip, '/')"/>
-        <xsl:text>unzip </xsl:text>
+        <xsl:text>unzip -o </xsl:text>
         <xsl:value-of select="$v_stage_zip"/>
         <xsl:value-of select="$v_newline"/>
     </xsl:template>
