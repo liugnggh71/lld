@@ -407,6 +407,25 @@
                 <xsl:text>mkdir -p </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:value-of select="$v_newline"/>
+                
+                <xsl:text>cat &lt;&lt; 'EOC' &gt; </xsl:text>
+                <xsl:choose>
+                    <xsl:when test="position() gt 1">
+                        <xsl:text>&gt;</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text>/profile.txt</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>export PATH=${HOME}/</xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text>:$PATH</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                <xsl:text>EOC</xsl:text>
+                <xsl:value-of select="$v_newline"/>
+                
+                
+<!--                
                 <xsl:text>echo -n export PATH=\${HOME}/</xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:choose>
@@ -421,7 +440,7 @@
                 <xsl:value-of select="$v_newline"/>
                 <xsl:text>echo ':${PATH}' >> profile.txt </xsl:text>
                 <xsl:value-of select="$v_newline"/>
-                <xsl:text>echo cd </xsl:text>
+-->                <xsl:text>echo cd </xsl:text>
                 <xsl:value-of select="$v_subdir"/>
                 <xsl:choose>
                     <xsl:when test="position() gt 1">
