@@ -12,6 +12,4 @@ EOS
 EOC
 chmod u+x download.sh
 ./download.sh
-./wget_lld.sh
-./install_binary_lld.sh
 zip -ry dba_code_bin.zip dba_code

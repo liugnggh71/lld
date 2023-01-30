@@ -98,11 +98,6 @@
             <xsl:value-of select="$v_newline"/>
             <xsl:text>./download.sh</xsl:text>
             <xsl:value-of select="$v_newline"/>
-            <xsl:for-each select="//stage/wget_stage_code">
-                <xsl:text>./</xsl:text>
-                <xsl:value-of select="."/>
-                <xsl:value-of select="$v_newline"/>
-            </xsl:for-each>
             <xsl:value-of select="//prepare_zip_cmd"/>
             <xsl:value-of select="$v_newline"/>
         </xsl:result-document>
