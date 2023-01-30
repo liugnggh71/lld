@@ -447,11 +447,15 @@
                         <xsl:text>&gt;</xsl:text>
                     </xsl:when>
                 </xsl:choose>
-                <xsl:text>&gt; cd_dba_code_bin.sh</xsl:text>
+                <xsl:text>&gt; </xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text>/cd_dba_code_bin.sh</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 
                 <xsl:text>echo ln -s cd_dba_code_bin.sh BN</xsl:text>
-                <xsl:text> &gt; ln_bn.sh</xsl:text>
+                <xsl:text> &gt; </xsl:text>
+                <xsl:value-of select="$v_subdir"/>
+                <xsl:text>/ln_bn.sh</xsl:text>
                 <xsl:value-of select="$v_newline"/>
                 
                 <xsl:text>cd ${pwd}/</xsl:text>

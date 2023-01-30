@@ -6,8 +6,8 @@ mkdir -p dba_code/bin
 cat << 'EOC' > dba_code/bin/profile.txt
 export PATH=${HOME}/dba_code/bin:$PATH
 EOC
-echo cd dba_code/bin> cd_dba_code_bin.sh
-echo ln -s cd_dba_code_bin.sh BN > ln_bn.sh
+echo cd dba_code/bin> dba_code/bin/cd_dba_code_bin.sh
+echo ln -s cd_dba_code_bin.sh BN > dba_code/bin/ln_bn.sh
 cd ${pwd}/dba_code/bin
 wget https://github.com/liugnggh71/lld/raw/main/dba_code/bin/lld
 chmod u+x lld
