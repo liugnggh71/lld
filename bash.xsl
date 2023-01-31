@@ -146,6 +146,10 @@
     <xsl:template match="/">
         <xsl:call-template name="dump_all"/>
         <xsl:call-template name="wget"/>
+        <xsl:call-template name="gen_code"/>
+    </xsl:template>
+    
+    <xsl:template name="gen_code">
         <xsl:for-each select="/bash_codes//bash_code">
             <xsl:variable name="v_stage_dir">
                 <xsl:choose>
