@@ -1,0 +1,25 @@
+#!/bin/sh
+################################################################################
+# b1f
+<<COMMENT
+Make a local backup of a single file
+COMMENT
+################################################################################
+if [ ${#} -lt $((1)) ] 
+then
+
+  echo "####################"
+  echo "USAGE: b1f file_name"
+  echo "####################"
+
+  #XXXXXXXXXX
+  exit 11
+  #XXXXXXXXXX
+
+fi
+
+mkdir -p bk
+cp -p ${1} bk/${1}.$(date +%Y_%m_%d_%H_%M_%S)
+ls -ltr bk | tail -n 10
+
+    

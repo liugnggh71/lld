@@ -1,0 +1,23 @@
+#!/bin/sh
+################################################################################
+# lnc
+<<COMMENT
+Generate symbolic creation code
+COMMENT
+################################################################################
+
+echo "" > ln_s.sh
+while IFS= read -r line
+do
+  ## Debugging lines
+#  echo "$line"
+  full_file=$(echo "$line" | cut -d '>' -f 2)
+#  echo $full_file
+  short_cut=$(echo "$line" | cut -d '-' -f 1 | rev | cut -d ' ' -f 2 | rev)
+#  echo $short_cut
+  echo ln -s $full_file $short_cut
+  echo ln -s $full_file $short_cut >> ln_s.sh
+#  ln -s $full_file $short_cut
+done << ( ls -l | grep ^l )
+
+    

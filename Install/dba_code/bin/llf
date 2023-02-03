@@ -1,0 +1,12 @@
+#!/bin/sh
+################################################################################
+# llf
+<<COMMENT
+List files under current directory
+COMMENT
+################################################################################
+  #List files
+  #RRRRRRRRRR
+  echo "List files"
+
+  ls -l ${1:-.} | grep ^-
