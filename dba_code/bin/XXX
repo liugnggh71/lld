@@ -8,10 +8,10 @@ COMMENT
 
 cat << 'EOF'
 ======================================================
-java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
+java net.sf.saxon.Transform  -s:${1} -a:on -o:./out.txt -xi:on
 ======================================================
 EOF
-echo java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
-java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
+echo java net.sf.saxon.Transform  -s:${1} -a:on -o:./out.txt -xi:on
+java net.sf.saxon.Transform -s:${1} -a:on -o:./out.txt -xi:on
 
     

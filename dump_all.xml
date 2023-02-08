@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="stage.xsl"?>
 <stage xmlns:xi="http://www.w3.org/2001/XInclude"
-       git="https://github.com/liugnggh71/lld/raw/main">
+        git="https://github.com/liugnggh71/lld/raw/main">
    <prepare_zip_cmd>zip -ry dba_code_bin.zip dba_code</prepare_zip_cmd>
    <install_zip>https://github.com/liugnggh71/lld/raw/main/Install/dba_code_bin.zip</install_zip>
    <?xml-stylesheet type="text/xsl" href="bash.xsl"?>
    <!-- Driver XML -->
    <bash_codes git="https://github.com/liugnggh71/lld/raw/main"
-               xml:base="bash_codes.xml">
+                xml:base="bash_codes.xml">
       <stage>
          <wget_stage_code>wget_lld.sh</wget_stage_code>
       </stage>
       <bash_code name="lld"
-                 subdir="dba_code/bin"
-                 symbolic_link="D"
-                 xml:base="code/bash/lld.xml">
+                  subdir="dba_code/bin"
+                  symbolic_link="D"
+                  xml:base="code/bash/lld.xml">
          <header>
             <shebang>/bin/sh</shebang>
             <desc>List sub-directory under current directory</desc>
@@ -22,9 +22,9 @@
          <run desc="List sub-directory" indent="1">ls -l ${1:-.} | grep ^d</run>
       </bash_code>
       <bash_code name="llf"
-                 subdir="dba_code/bin"
-                 symbolic_link="F"
-                 xml:base="code/bash/llf.xml">
+                  subdir="dba_code/bin"
+                  symbolic_link="F"
+                  xml:base="code/bash/llf.xml">
          <header>
             <shebang>/bin/sh</shebang>
             <desc>List files under current directory</desc>
@@ -32,9 +32,9 @@
          <run desc="List files" indent="1">ls -l ${1:-.} | grep ^-</run>
       </bash_code>
       <bash_code name="lll"
-                 subdir="dba_code/bin"
-                 symbolic_link="L"
-                 xml:base="code/bash/lll.xml">
+                  subdir="dba_code/bin"
+                  symbolic_link="L"
+                  xml:base="code/bash/lll.xml">
          <header>
             <shebang>/bin/sh</shebang>
             <desc>List sub-directory under current directory</desc>
@@ -121,11 +121,11 @@ java net.sf.saxon.Transform  -s:${1} -xsl:${2} -o:${3} -xi:on
          </header>
          <full_code>cat &lt;&lt; 'EOF'
 ======================================================
-java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
+java net.sf.saxon.Transform  -s:${1} -a:on -o:./out.txt -xi:on
 ======================================================
 EOF
-echo java net.sf.saxon.Transform  -s:${1} -a:on -o:/dev/null -xi:on
-java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
+echo java net.sf.saxon.Transform  -s:${1} -a:on -o:./out.txt -xi:on
+java net.sf.saxon.Transform -s:${1} -a:on -o:./out.txt -xi:on
 
     </full_code>
       </bash_code>
@@ -137,8 +137,8 @@ java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
          <wget_stage_code>install_binary_lld.sh</wget_stage_code>
       </stage>
       <binary name="saxon_he_stable.jar"
-              subdir="dba_code/bin"
-              xml:base="code/binary/Saxon-HE_Java.xml">
+               subdir="dba_code/bin"
+               xml:base="code/binary/Saxon-HE_Java.xml">
          <version>11.4</version>
          <stage_dir>/tmp/saxon_he</stage_dir>
          <wget_zip>https://github.com/Saxonica/Saxon-HE/raw/main/11/Java/SaxonHE11-4J.zip</wget_zip>
@@ -173,8 +173,8 @@ java net.sf.saxon.Transform -s:${1} -a:on -o:/dev/null -xi:on
          </commands>
       </binary>
       <binary name="sqlcl-latest.zip"
-              subdir="dba_code/bin"
-              xml:base="code/binary/SqlCL.xml">
+               subdir="dba_code/bin"
+               xml:base="code/binary/SqlCL.xml">
          <version>22.4</version>
          <stage_dir>/tmp/saxon_he</stage_dir>
          <wget_zip>https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip</wget_zip>
