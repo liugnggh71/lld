@@ -136,7 +136,7 @@ java net.sf.saxon.Transform -s:${1} -a:on -o:./out.txt -xi:on
       <stage>
          <wget_stage_code>install_binary_lld.sh</wget_stage_code>
       </stage>
-      <binary name="saxon_he_stable.jar"
+      <binary name="saxon_he_stable.zip"
                subdir="dba_code/bin"
                xml:base="code/binary/Saxon-HE_Java.xml">
          <version>11.4</version>
@@ -159,10 +159,7 @@ java net.sf.saxon.Transform -s:${1} -a:on -o:./out.txt -xi:on
                <wget_zip/>
             </command>
             <command>
-               <unzip_wget_zip/>
-            </command>
-            <command>
-               <cp_single_pick copy_from="saxon-he-11.4.jar"/>
+               <cp_single_pick copy_from="SaxonHE11-4J.zip"/>
             </command>
             <command>
                <cd_pwd/>
